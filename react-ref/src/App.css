@@ -1,0 +1,62 @@
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.login-form h1 {
+  color: rgb(63, 54, 104);
+}
+
+.login-form > * {
+  margin-bottom: 1rem;
+}
+
+.username_input::placeholder,
+.password_input::placeholder {
+  font-weight: 600;
+}
+
+.username_input,
+.password_input {
+  background-color: rgb(230, 230, 230);
+  border: none;
+  border-radius: 0.1rem;
+  padding: 1rem 2rem;
+}
+
+.login_options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.remember_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.login_btn {
+  background-color: rgb(129, 127, 254);
+  border: transparent;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0.1rem;
+  cursor: pointer;
+}
+
+.forgot_link {
+  color: rgb(129, 127, 254);
+  text-decoration: none;
+  font-weight: 500;
+}

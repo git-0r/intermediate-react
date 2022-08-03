@@ -1,0 +1,84 @@
+body {
+  color: white;
+  background-color: rgb(245, 245, 245);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+h1 {
+  color: rgb(195, 156, 155);
+  text-align: center;
+  font-weight: 100;
+  font-size: 5rem;
+}
+
+.todo_wrapper {
+  position: relative;
+  height: fit-content;
+  width: 100%;
+}
+
+.layer1,
+.layer2 {
+  position: absolute;
+  height: 5px;
+  background-color: #fff;
+}
+
+.layer1 {
+  width: calc(100% - 20px);
+  left: 10px;
+  bottom: -10px;
+  box-shadow: 0px 0px 2px 1px rgb(200, 200, 200);
+  z-index: -2;
+}
+
+.layer2 {
+  width: calc(100% - 10px);
+  left: 5px;
+  box-shadow: 0px 0px 2px 1px rgb(200, 200, 200);
+  z-index: -1;
+}
+
+.layer3 {
+  box-shadow: 0px 0px 2px 1px rgb(200, 200, 200);
+  z-index: 1;
+}
+
+.todo_filters_wrapper {
+  background-color: #fff;
+  color: rgb(106, 106, 106);
+  border-top: 2px solid rgb(240, 240, 240);
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo_count span {
+  font-weight: 900;
+}
+
+.todo_count {
+  margin: 0;
+}
+
+.filter_btns button {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 0.2rem;
+}
+
+.clear_completed{
+  margin: 0;
+  cursor: pointer;
+}

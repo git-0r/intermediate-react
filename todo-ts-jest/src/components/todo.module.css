@@ -1,0 +1,26 @@
+.todo {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: rgb(106, 106, 106);
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  border-top: 2px solid rgb(240, 240, 240);
+}
+
+.todo:hover .modButtons {
+  visibility: visible;
+}
+
+.todo_content {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+.modButtons {
+  cursor: pointer;
+  display: flex;
+  margin-left: auto;
+  visibility: hidden;
+}

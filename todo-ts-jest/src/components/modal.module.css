@@ -1,0 +1,39 @@
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 80%;
+  height: 85%;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 378px;
+  margin: 0 auto;
+}
+
+.modalForm input {
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+}
+
+.modalForm button {
+  padding: 0.5rem;
+}
+
+.closeModal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: transparent;
+  margin: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
