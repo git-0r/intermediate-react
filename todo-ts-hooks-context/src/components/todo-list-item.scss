@@ -1,0 +1,36 @@
+// Reusable variables
+$primary-color-gray: rgb(200, 200, 200);
+
+.todo {
+  border-top: 1px solid $primary-color-gray;
+  margin: 0;
+  padding: 0.5rem 2rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & .todo_menu_wrapper {
+    position: relative;
+    cursor: pointer;
+  }
+
+  & .todo_menu {
+    position: absolute;
+    right: 100%;
+    background-color: white;
+    box-shadow: 0px 0px 1px 1px $primary-color-gray;
+    border-radius: 0.1rem;
+
+    & .todo_menu_option {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.3rem 0.5rem;
+      cursor: pointer;
+    }
+
+    & .todo_menu_option:first-of-type {
+      border-bottom: 1px solid $primary-color-gray;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+// Reusable css
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App {
+  @include flex-center();
+  text-align: center;
+  background-color: rgb(176, 102, 238);
+  padding: 1rem;
+  height: 100vh;
+
+  & main {
+    border-radius: 1rem;
+    background-color: #fff;
+    width: 400px;
+    height: 50vh;
+    position: relative;
+
+    & .list_wrapper {
+      overflow-y: scroll;
+      height: 75%;
+    }
+
+    & .add_todo_btn {
+      @include flex-center();
+      background-color: rgb(147, 52, 233);
+      position: absolute;
+      top: -2%;
+      right: -2%;
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}

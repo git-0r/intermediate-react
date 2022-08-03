@@ -9,7 +9,7 @@ export const TodoList = () => {
 
   return (
     <div>
-      {todos.map((todo: todo, i) => (
+      {todos?.map((todo: todo, i) => (
         <TodoListItem
           key={todo.id}
           content={todo.data.content}
