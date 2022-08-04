@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { TodoForm } from "./components/TodoForm";
-import {
-  onSnapshot,
-  collection,
-  query,
-  orderBy,
-} from "firebase/firestore";
+import { onSnapshot, collection, query, orderBy } from "firebase/firestore";
 import { db } from "./firebase";
 import { Todo } from "./components/Todo";
 import { Modal } from "./components/Modal";
 import { deleteTodo, markAsCompleted } from "./firebase-crud";
+import { useDispatch, useSelector } from "react-redux";
+import { getTodos } from "./redux/todoSlice";
 
 type todo = {
   id: string;
@@ -21,20 +18,24 @@ type todo = {
 };
 
 function App() {
-  const [list, setList] = useState([]);
+  // const [list, setList] = useState([]);
   const [task, setTask] = useState(0);
   const [modal, setModal] = useState({
     visible: false,
     todo: { id: "", data: { content: "", completed: false } },
   });
 
+  const dispatch = useDispatch();
+  const data = useSelector((state: any) => state.data.value.todos);
   useEffect(() => {
-    const q = query(collection(db, "todo"), orderBy("timestamp", "desc"));
-    onSnapshot(q, (snapshot: any) => {
-      setList(
-        snapshot.docs.map((doc: any) => ({ id: doc.id, data: doc.data() }))
-      );
-    });
+    // const q = query(collection(db, "todo"), orderBy("timestamp", "desc"));
+    // onSnapshot(q, (snapshot: any) => {
+    //   setList(
+    //     snapshot.docs.map((doc: any) => ({ id: doc.id, data: doc.data() }))
+    //   );
+    // });
+    dispatch(getTodos());
+    // setList(data);
   }, []);
 
   return (
@@ -43,10 +44,10 @@ function App() {
       <div className="todo_wrapper">
         <div className="layer3">
           <TodoForm />
-          {list.length < 1
+          {data.length < 1
             ? null
             : task === 1
-            ? list
+            ? data
                 .filter((todo: todo) => !todo.data.completed)
                 .map((todo: todo) => (
                   <Todo
@@ -58,7 +59,7 @@ function App() {
                   />
                 ))
             : task === 2
-            ? list
+            ? data
                 .filter((todo: todo) => todo.data.completed)
                 .map((todo: todo) => (
                   <Todo
@@ -69,7 +70,7 @@ function App() {
                     deleteTodo={deleteTodo}
                   />
                 ))
-            : list.map((todo: todo) => (
+            : data.map((todo: todo) => (
                 <Todo
                   setModal={setModal}
                   key={todo.id}
@@ -78,11 +79,11 @@ function App() {
                   deleteTodo={deleteTodo}
                 />
               ))}
-          {list.length > 0 && (
+          {data.length > 0 && (
             <div className="todo_filters_wrapper">
               <p className="todo_count">
                 <span>
-                  {list.filter((todo: todo) => !todo.data.completed).length}
+                  {data.filter((todo: todo) => !todo.data.completed).length}
                 </span>{" "}
                 item left
               </p>
